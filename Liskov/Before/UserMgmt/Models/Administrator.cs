@@ -20,4 +20,9 @@ public class Administrator : User
 
         return false;
     }
+    
+    public override void ApproveWorkflow()
+    {
+        Console.WriteLine("Workflow approved");
+    }
 }

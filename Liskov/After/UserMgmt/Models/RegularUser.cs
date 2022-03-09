@@ -6,4 +6,9 @@ public class RegularUser : User
     {
         
     }
+    
+    public override void ApproveWorkflow()
+    {
+        throw new ApplicationException("Regular user cannot approve workflows");
+    }
 }
