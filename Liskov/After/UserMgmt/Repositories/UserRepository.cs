@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace Before.UserMgmt.Repositories;
+namespace After.UserMgmt.Repositories;
 
 public class UserRepository
 {

@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace Before.UserMgmt.Services;
+namespace After.UserMgmt.Services;
 
 public class EmailService
 {

@@ -1,4 +1,6 @@
-﻿namespace Before.UserMgmt.Models;
+﻿using After.UserMgmt.Abstractions;
+
+namespace After.UserMgmt.Models;
 
 public abstract class User
 {
@@ -11,10 +13,4 @@ public abstract class User
     public string Username { get; set; }
     public string Password { get; set; }
     
-    public abstract void ApproveWorkflow();
-
-    public virtual bool CheckPasswordValid()
-    {
-        return Password.Length > 8;
-    }
 }

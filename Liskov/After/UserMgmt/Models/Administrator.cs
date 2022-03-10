@@ -1,12 +1,14 @@
-﻿namespace Before.UserMgmt.Models;
+﻿using After.UserMgmt.Abstractions;
 
-public class Administrator : User
+namespace After.UserMgmt.Models;
+
+public class Administrator : User, IPasswordValidator, IWorkflowOperations
 {
     public Administrator(string username, string password) : base(username, password)
     {
         
     }
-    public override bool CheckPasswordValid()
+    public bool CheckPasswordValid()
     {
         return Password.Length > 8 && ContainsDigit(Password);
     }
@@ -21,7 +23,7 @@ public class Administrator : User
         return false;
     }
     
-    public override void ApproveWorkflow()
+    public void ApproveWorkflow()
     {
         Console.WriteLine("Workflow approved");
     }

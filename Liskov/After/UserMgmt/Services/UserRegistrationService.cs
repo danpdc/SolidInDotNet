@@ -1,9 +1,10 @@
 ﻿using System.Data.SqlClient;
 using System.Net.Mail;
-using Before.UserMgmt.Models;
-using Before.UserMgmt.Repositories;
+using After.UserMgmt.Abstractions;
+using After.UserMgmt.Models;
+using After.UserMgmt.Repositories;
 
-namespace Before.UserMgmt.Services;
+namespace After.UserMgmt.Services;
 
 public class UserRegistrationService
 {
@@ -18,7 +19,8 @@ public class UserRegistrationService
     
     public void RegisterUser(User user)
     {
-        if (!user.CheckPasswordValid())
+        var pwValidator = user as IPasswordValidator;
+        if (!pwValidator!.CheckPasswordValid())
             throw new ArgumentException("Password is not valid");
         
         _userRepo.AddUserToDb();

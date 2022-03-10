@@ -5,13 +5,18 @@ namespace After;
 
 public class UserRegistrationService
 {
+    private readonly SqlRepository _sql;
+    private readonly EmailService _email;
+
+    public UserRegistrationService()
+    {
+        _sql = new SqlRepository();
+        _email = new EmailService();
+    }
+    
     public void RegisterUser()
     {
-        SqlConnection connection = new SqlConnection();
-        connection.Open();
-        SqlCommand command = new SqlCommand("INSERT INTO [...]"); //Insert user into db
-
-        SmtpClient client = new SmtpClient("smtp.myhost.com");
-        client.Send(new MailMessage());
+        _sql.AddUserToDb();
+        _email.SendEmail();
     }
 }

@@ -1,14 +1,16 @@
-﻿namespace Before.UserMgmt.Models;
+﻿using After.UserMgmt.Abstractions;
 
-public class RegularUser : User
+namespace After.UserMgmt.Models;
+
+public class RegularUser : User, IPasswordValidator
 {
     public RegularUser(string username, string password) : base(username, password)
     {
         
     }
-    
-    public override void ApproveWorkflow()
+
+    public bool CheckPasswordValid()
     {
-        throw new ApplicationException("Regular user cannot approve workflows");
+        return Password.Length > 8;
     }
 }

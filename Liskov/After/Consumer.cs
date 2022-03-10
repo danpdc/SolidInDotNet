@@ -1,7 +1,8 @@
-﻿using Before.UserMgmt.Models;
-using Before.UserMgmt.Services;
+﻿
+using After.UserMgmt.Models;
+using After.UserMgmt.Services;
 
-namespace Before;
+namespace After;
 
 public class Consumer
 {
